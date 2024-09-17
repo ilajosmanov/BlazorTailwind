@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<package>
+    <metadata>
+        <id>BlazorTailwind</id>
+        <version>1.0.1-beta1</version>
+        <authors>Illia Osmanov</authors>
+        <owners>Unbroken.Web</owners>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>BlazorTailwind is a NuGet package that provides a set of Blazor components and utilities for
+            building modern web applications with Tailwind CSS.
+        </description>
+    </metadata>
+</package>
