@@ -11,6 +11,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <None Update="BlazorTailwind.targets" Pack="true" PackagePath="build\BlazorTailwind.targets"/>
+        <None Update="BlazorTailwind.targets" Pack="true" PackagePath="build/BlazorTailwind.targets"/>
     </ItemGroup>
 </Project>

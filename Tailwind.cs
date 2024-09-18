@@ -19,7 +19,16 @@ public static class Tailwind
         return directoryInfo?.FullName;
     }
 
-    public async static Task DevAsync(string cssInput, string cssOutput)
+    private static string ExeName =>
+        Environment.OSVersion.Platform switch
+        {
+            PlatformID.Unix => "tailwindcss-linux-x64",
+            PlatformID.MacOSX => "tailwindcss-mac-osx-x64",
+            _ => "tailwindcss-windows-x64.exe"
+        };
+
+
+    public static async Task DevAsync(string cssInput, string cssOutput)
     {
         var rootDirectory = GetRootDirectory();
 
@@ -30,7 +39,7 @@ public static class Tailwind
             return;
         }
 
-        var tailwindExePath = Path.Combine(rootDirectory, @".tailwind\3.4.10\tailwindcss-windows-x64.exe");
+        var tailwindExePath = Path.Combine(rootDirectory, $@".tailwind/3.4.10/{Tailwind.ExeName}");
         var tailwindCssInput = Path.Combine(rootDirectory, cssInput);
         var tailwindConfig = Path.Combine(rootDirectory, "tailwind.config.js");
         var tailwindCssOutput = Path.Combine(rootDirectory, cssOutput);

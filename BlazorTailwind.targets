@@ -22,7 +22,7 @@
             <TailwindExePath>$([System.IO.Path]::Combine($(TailwindExeDir), $(TailwindExeName)))</TailwindExePath>
         </PropertyGroup>
         <ItemGroup>
-            <TailwindFileInputs Include="**\*.css;**\*.razor;**\*.cshtml"/>
+            <TailwindFileInputs Include="**/*.css;**/*.razor;**/*.cshtml"/>
             <UpToDateCheckInput Include="@(TailwindFileInputs)"/>
         </ItemGroup>
     </Target>
