@@ -22,8 +22,8 @@ public static class Tailwind
     private static string ExeName =>
         Environment.OSVersion.Platform switch
         {
+            PlatformID.MacOSX => "tailwindcss-macos-x64",
             PlatformID.Unix => "tailwindcss-linux-x64",
-            PlatformID.MacOSX => "tailwindcss-mac-osx-x64",
             _ => "tailwindcss-windows-x64.exe"
         };
 
@@ -32,14 +32,14 @@ public static class Tailwind
     {
         var rootDirectory = GetRootDirectory();
 
-        if (rootDirectory == null)
+        if (rootDirectory is null)
         {
             Console.WriteLine("Error: Could not find the root directory.");
 
             return;
         }
 
-        var tailwindExePath = Path.Combine(rootDirectory, $@".tailwind/3.4.10/{Tailwind.ExeName}");
+        var tailwindExePath = Path.Combine(rootDirectory, $".tailwind/3.4.10/{Tailwind.ExeName}");
         var tailwindCssInput = Path.Combine(rootDirectory, cssInput);
         var tailwindConfig = Path.Combine(rootDirectory, "tailwind.config.js");
         var tailwindCssOutput = Path.Combine(rootDirectory, cssOutput);
